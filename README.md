@@ -1,8 +1,8 @@
 # 🥋🐇 Bun-Fu Too
 
-**Bun Fu** is a precision platformer made in **Godot** as a learning project.
-A direct sequel to the Mini-Jam game **Bun-Fu Master**.
-Faster movement than its predecessor, tight-ish controls, and pixel art visuals from the Gold GB color palette.
+**Bun Fu** is a precision platformer made in **Godot** as a learning project.  
+A direct sequel to the Mini-Jam game **Bun-Fu Master**.  
+Faster movement than its predecessor, tight-ish controls, and pixel art visuals from the Gold GB color palette.  
 
 ## Overview
 - Genre: Precision Platformer  
@@ -23,10 +23,10 @@ So, expect rough edges and experimentation rather than polish.
 - Uses built-in GDScript
 
 ## Repository Structure (ideally)
-/scenes/ → Main game scenes
-/scripts/ → GDScript files
-/assets/ → Sprites, audio, and visual resources
-/project.godot → Godot project file
+/scenes/ → Main game scenes  
+/scripts/ → GDScript files  
+/assets/ → Sprites, audio, and visual resources  
+/project.godot → Godot project file  
 
 ## License
 Open for learning and personal use.  
