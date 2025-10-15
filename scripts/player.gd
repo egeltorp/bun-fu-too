@@ -97,9 +97,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("idle")
 
-	
+	# Handle collision + Spikes
+	var collision = move_and_slide()
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
 
-	move_and_slide()
+		if collider == tilemap:
+			var cell_pos = tilemap.local_to_map(col.get_position())
+			var tile_data = tilemap.get_cell_tile_data(cell_pos)
+			
+			if tile_data and tile_data.get_custom_data("isSpike"):
+				die()
+				return
+
+
 	
 func die():
 	if is_dead:
