@@ -32,4 +32,4 @@ So, expect rough edges and experimentation rather than polish.
 Open for learning and personal use.  
 If you use anything from this project, please credit **Theodor Holmberg**.
 
-Made with ❤️ and frustration in Godot.
+Made with ❤️ and hate in Godot.
