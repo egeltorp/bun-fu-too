@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://budk88qlx0vhr"]
 
-[ext_resource type="Script" uid="uid://c7tkqlchgjhcr" path="res://scripts/player.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://c7tkqlchgjhcr" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://dow3ptbfb3c8" path="res://Player/spritesheet_bunny.png" id="1_l8h54"]
 [ext_resource type="AudioStream" uid="uid://c2ec4sn7kmemj" path="res://Player/death.wav" id="3_gwnis"]
 [ext_resource type="AudioStream" uid="uid://c8c2f01rkyxkn" path="res://Player/jump.wav" id="4_k53q1"]
@@ -119,6 +119,10 @@ shape = SubResource("RectangleShape2D_k53q1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(3, -7)
+shape = SubResource("CircleShape2D_4ntmi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(4, -8)
 shape = SubResource("CircleShape2D_4ntmi")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]

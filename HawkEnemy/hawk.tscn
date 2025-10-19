@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxxltefqtpka3"]
 
-[ext_resource type="Script" uid="uid://csje2rvni0ifu" path="res://Enemy/hawk.gd" id="1_5v4nu"]
-[ext_resource type="Texture2D" uid="uid://c7806nq40jqpp" path="res://Enemy/spritesheet_hawk.png" id="1_j1mmh"]
+[ext_resource type="Script" uid="uid://csje2rvni0ifu" path="res://HawkEnemy/hawk.gd" id="1_5v4nu"]
+[ext_resource type="Texture2D" uid="uid://c7806nq40jqpp" path="res://HawkEnemy/spritesheet_hawk.png" id="1_j1mmh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v4nu"]
 atlas = ExtResource("1_j1mmh")

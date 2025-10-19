@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wq8erneya3j0"]
 
 [ext_resource type="Texture2D" uid="uid://cd4w2o8e0vg0e" path="res://Stage/block.png" id="1_4dbp1"]
-[ext_resource type="Script" uid="uid://csje2rvni0ifu" path="res://Enemy/hawk.gd" id="1_70dfs"]
+[ext_resource type="Script" uid="uid://csje2rvni0ifu" path="res://HawkEnemy/hawk.gd" id="1_70dfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el15k"]
 size = Vector2(16, 16)

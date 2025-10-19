@@ -18,6 +18,7 @@ var coyote_time_counter = 0.0
 
 var facing_right := true
 var is_dead := false
+@export var god_mode := false
 
 var spawn_position: Vector2  # To remember the starting position
 
@@ -41,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.y = clamp(velocity.y, -350, 200)
 	
-	# Apply gravity
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -114,6 +114,8 @@ func _physics_process(delta: float) -> void:
 
 	
 func die():
+	if god_mode:
+		return
 	if is_dead:
 		return
 	else:

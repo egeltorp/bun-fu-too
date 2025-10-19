@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnatmm5y01pge"
-path="res://.godot/imported/gold-gb-32x.png-0b621e887cfbd65cf6a28402338f93e1.ctex"
+uid="uid://c7806nq40jqpp"
+path="res://.godot/imported/spritesheet_hawk.png-6ad52141ed1742148cbfaa087f2cafe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gold-gb-32x.png"
-dest_files=["res://.godot/imported/gold-gb-32x.png-0b621e887cfbd65cf6a28402338f93e1.ctex"]
+source_file="res://HawkEnemy/spritesheet_hawk.png"
+dest_files=["res://.godot/imported/spritesheet_hawk.png-6ad52141ed1742148cbfaa087f2cafe7.ctex"]
 
 [params]
 

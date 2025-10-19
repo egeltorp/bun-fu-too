@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nxx1kdkv6lxw"
-path="res://.godot/imported/egeltorp_splash.png-c3d8c6dd47306b847030cace62fac491.ctex"
+uid="uid://bnatmm5y01pge"
+path="res://.godot/imported/gold-gb-32x.png-cf6170a5e031bb49ecf0f5772fea0a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://egeltorp_splash.png"
-dest_files=["res://.godot/imported/egeltorp_splash.png-c3d8c6dd47306b847030cace62fac491.ctex"]
+source_file="res://Assets/gold-gb-32x.png"
+dest_files=["res://.godot/imported/gold-gb-32x.png-cf6170a5e031bb49ecf0f5772fea0a24.ctex"]
 
 [params]
 
