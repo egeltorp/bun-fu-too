@@ -114,7 +114,8 @@ animation = &"crouch"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -3)
+position = Vector2(0.325, -3)
+scale = Vector2(0.805, 1)
 shape = SubResource("RectangleShape2D_k53q1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

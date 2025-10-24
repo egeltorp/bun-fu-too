@@ -15,6 +15,9 @@ func _ready():
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	
+	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D.flip_h = direction == -1
+	
 	# reverse if exceeded patrol bounds
 	if direction == 1 and global_position.x > start_pos.x + patrol_range:
 		direction = -1
@@ -23,7 +26,7 @@ func _physics_process(delta):
 
 	velocity.x = direction * speed
 	move_and_slide()
-
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_deadly:
 		if body.has_method("die"):

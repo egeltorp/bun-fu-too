@@ -31,6 +31,11 @@ func _ready() -> void:
 	is_dead = false
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		die(true) # true bool = FORCE death, ignores god_mode
+	if Input.is_action_just_pressed("toggle_god_mode"):
+		god_mode = !god_mode
+	
 	var is_crouching := Input.is_action_pressed("down")
 	var _is_jumping := Input.is_action_pressed("jump")
 
@@ -110,15 +115,14 @@ func _physics_process(delta: float) -> void:
 			if tile_data and tile_data.get_custom_data("isSpike"):
 				die()
 				return
-
-
 	
-func die():
-	if god_mode:
+func die(force := false):
+	if god_mode and not force:
 		return
 	if is_dead:
 		return
 	else:
+		GameTimer.stop()
 		print("Player died.")
 		is_dead = true
 		
@@ -139,6 +143,7 @@ func die():
 		await get_tree().create_timer(1.0).timeout
 		
 		print("Respawning.")
+		GameTimer.reset()
 		global_position = spawn_position
 		set_process(true)
 		set_physics_process(true)
