@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ct5dqhyw6wjen"]
+[gd_scene load_steps=16 format=4 uid="uid://ct5dqhyw6wjen"]
 
 [ext_resource type="Script" uid="uid://cvqsdlbew48wc" path="res://camera_2d.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://budk88qlx0vhr" path="res://Player/player.tscn" id="1_ig7tw"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://p6ri17ny1kjk" path="res://LaserObstacle/LaserObstacle.tscn" id="9_efxa6"]
 [ext_resource type="Script" uid="uid://c63ij3tje76d3" path="res://timer_label.gd" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cl75lhxo702d5" path="res://WinTrigger/WinTrigger.tscn" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://b3pr84rra68fb" path="res://Assets/BunFuToo.wav" id="13_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -103,6 +104,12 @@ target_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(-16, 0)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(16, 0)
+stream = ExtResource("13_ycdy4")
+volume_db = -6.559
+autoplay = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.245, 0.245)

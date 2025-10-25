@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_j3s7w")
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_snj64")
-volume_db = -9.37
+volume_db = 12.42
 max_distance = 441.0
 
 [node name="Idle" type="AudioStreamPlayer2D" parent="."]

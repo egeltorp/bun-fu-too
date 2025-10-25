@@ -137,6 +137,7 @@ func die(force := false):
 		camera_2d.shake(2.5, 4.0) # (strength, decay)
 		GameTimer.stop()
 		print("Player died.")
+		$Music.stream_paused = true
 		is_dead = true
 		
 		# Disable input
@@ -161,6 +162,7 @@ func die(force := false):
 		set_process(true)
 		set_physics_process(true)
 		$AnimatedSprite2D.show()
+		$Music.stream_paused = false
 		is_dead = false
 		
 func win():
