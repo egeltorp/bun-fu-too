@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://p6ri17ny1kjk"]
+
+[ext_resource type="Script" uid="uid://5w5icsmxvu73" path="res://LaserObstacle/laser.gd" id="1_j3s7w"]
+[ext_resource type="Texture2D" uid="uid://behddedvsfrdw" path="res://LaserObstacle/laser.png" id="2_7ioo6"]
+[ext_resource type="AudioStream" uid="uid://bxs1ckmanvism" path="res://LaserObstacle/laser_shoot.wav" id="3_snj64"]
+[ext_resource type="AudioStream" uid="uid://md5wjdww3ll4" path="res://LaserObstacle/laser_idle.wav" id="4_t2nwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3s7w"]
+
+[node name="LaserObstacle" type="Node2D"]
+script = ExtResource("1_j3s7w")
+shoot_right = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7ioo6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+position = Vector2(8, 0)
+default_color = Color(0.811765, 0.670588, 0.317647, 1)
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_j3s7w")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_snj64")
+volume_db = -9.37
+max_distance = 441.0
+
+[node name="Idle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_t2nwy")
+max_distance = 135.0
+panning_strength = 1.23
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

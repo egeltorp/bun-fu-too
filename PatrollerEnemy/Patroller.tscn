@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://2g3617iubnw8"]
+[gd_scene load_steps=12 format=3 uid="uid://2g3617iubnw8"]
 
 [ext_resource type="Script" uid="uid://bt5iyxx6qj40j" path="res://PatrollerEnemy/patroller.gd" id="1_de782"]
 [ext_resource type="Texture2D" uid="uid://djwn6ua2wm3xf" path="res://PatrollerEnemy/patroller.png" id="1_gyjul"]
 [ext_resource type="Texture2D" uid="uid://c4wmwa563rakb" path="res://PatrollerEnemy/patroller_sheet.png" id="3_aq1s7"]
+[ext_resource type="AudioStream" uid="uid://bfjt341w6jca5" path="res://PatrollerEnemy/walk.wav" id="4_jr6lt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de782"]
 size = Vector2(8, 14)
@@ -48,6 +49,7 @@ animations = [{
 
 [node name="Patroller" type="CharacterBody2D"]
 script = ExtResource("1_de782")
+step_interval = 0.28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -70,5 +72,13 @@ sprite_frames = SubResource("SpriteFrames_opfd2")
 animation = &"walk"
 frame = 2
 frame_progress = 0.624099
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jr6lt")
+volume_db = -11.243
+pitch_scale = 0.89
+max_distance = 85.0
+attenuation = 1.56917
+panning_strength = 1.46
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

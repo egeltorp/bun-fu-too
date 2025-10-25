@@ -4,9 +4,21 @@ extends Camera2D
 @export var vertical_deadzone := 0  # Pixels above or below the camera center before it follows
 @onready var player = get_node(target_path)
 
-func _process(_delta):
+var shake_strength: float = 0.0
+var shake_decay: float = 5.0
+
+func _process(delta):
 	if not player:
 		return
+
+	if shake_strength > 0:
+		offset = Vector2(
+			randf_range(-shake_strength, shake_strength),
+			randf_range(-shake_strength, shake_strength)
+		)
+		shake_strength = max(shake_strength - shake_decay * delta, 0)
+	else:
+		offset = Vector2.ZERO
 
 	var player_pos = player.global_position
 	var cam_pos = global_position
@@ -23,3 +35,7 @@ func _process(_delta):
 		cam_pos.y += (abs(y_diff) - vertical_deadzone) * direction
 
 	global_position = cam_pos
+
+func shake(strength: float = 5.0, decay: float = 5.0):
+	shake_strength = strength
+	shake_decay = decay

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl75lhxo702d5"]
+
+[ext_resource type="Script" uid="uid://biv8x1y0qdx28" path="res://WinTrigger/win_trigger.gd" id="1_v108i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unced"]
+
+[node name="WinTrigger" type="Node2D"]
+script = ExtResource("1_v108i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3, 2)
+shape = SubResource("RectangleShape2D_unced")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

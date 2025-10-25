@@ -1,40 +1,52 @@
 extends CharacterBody2D
 
-# Tweakable constants
+# TWEAKABLE CONSTANTS
 const MAX_SPEED = 130.0
 const ACCELERATION = 1500.0
 const DECELERATION = 1700.0
 const AIR_CONTROL = 0.85  # 0 = no air control, 1 = full
 
 #JUMPING LOGIC
-const JUMP_CROUCH_MULTIPLIER = 1.15
+const JUMP_CROUCH_MULTIPLIER = 1.328
 const GRAVITY = 650.0
-const JUMP_VELOCITY = -260
+const JUMP_VELOCITY = -225
 const JUMP_CUT_MULTIPLIER = 0.4
 
 #COYOTE TIME
 const MAX_COYOTE_TIME = 0.1
 var coyote_time_counter = 0.0
 
+# BASICS
 var facing_right := true
 var is_dead := false
+
+# GOD MODE
 @export var god_mode := false
+var cheated := false
+@onready var god_mode_label := $"../CanvasLayer/GodMode"
 
-var spawn_position: Vector2  # To remember the starting position
+# SPAWN POSITION
+var spawn_position: Vector2
 
+# DEPENDENCIES
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 @onready var tilemap: TileMapLayer = $"../TileMapLayer0"  # if it's a sibling
+@onready var camera_2d := $"../Camera2D"
 
 func _ready() -> void:
 	spawn_position = global_position  # Save starting location
 	is_dead = false
+	god_mode_label.visible = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		die(true) # true bool = FORCE death, ignores god_mode
 	if Input.is_action_just_pressed("toggle_god_mode"):
+		cheated = true
 		god_mode = !god_mode
+		god_mode_label.visible = god_mode
+	if Input.is_action_just_pressed("reload_scene"):
+		get_tree().reload_current_scene()
 	
 	var is_crouching := Input.is_action_pressed("down")
 	var _is_jumping := Input.is_action_pressed("jump")
@@ -122,6 +134,7 @@ func die(force := false):
 	if is_dead:
 		return
 	else:
+		camera_2d.shake(2.5, 4.0) # (strength, decay)
 		GameTimer.stop()
 		print("Player died.")
 		is_dead = true
@@ -149,3 +162,6 @@ func die(force := false):
 		set_physics_process(true)
 		$AnimatedSprite2D.show()
 		is_dead = false
+		
+func win():
+	print("Win!")
