@@ -18,7 +18,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_Timer_timeout)
 	line.visible = false
 	timer.wait_time = idle_time
-	timer.start()  # Make sure Timer.timeout is connected
+	timer.start()
 
 func _on_Timer_timeout() -> void:
 	laser_on = !laser_on
@@ -63,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 		var target = result.collider
 		if target.has_method("die"):
 			can_kill = false
+			print(name)
 			target.die()
 			get_tree().create_timer(kill_cooldown).timeout.connect(
 			func(): can_kill = true
