@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 		cheated = true
 		god_mode = !god_mode
 		god_mode_label.visible = god_mode
+	if Input.is_action_just_pressed("mute"):
+		AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
 	if Input.is_action_just_pressed("reload_scene"):
 		get_tree().reload_current_scene()
 	
@@ -115,7 +117,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play("idle")
 
 	# Handle collision + Spikes
-	var collision = move_and_slide()
+	var _collision = move_and_slide()
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
@@ -125,6 +127,7 @@ func _physics_process(delta: float) -> void:
 			var tile_data = tilemap.get_cell_tile_data(cell_pos)
 			
 			if tile_data and tile_data.get_custom_data("isSpike"):
+				print("Spike death.")
 				die()
 				return
 	
@@ -153,7 +156,7 @@ func die(force := false):
 		# Optional: stop all motion
 		velocity = Vector2.ZERO
 		
-		# Wait 1 second, then reload scene
+		# Wait 1 second, then restart
 		await get_tree().create_timer(1.0).timeout
 		
 		print("Respawning.")
@@ -164,6 +167,6 @@ func die(force := false):
 		$AnimatedSprite2D.show()
 		$Music.stream_paused = false
 		is_dead = false
-		
+
 func win():
 	print("Win!")
