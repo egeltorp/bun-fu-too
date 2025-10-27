@@ -8,10 +8,8 @@ func _process(delta):
 		time += delta
 
 func reset():
-	print("Timer reset.")
 	time = 0.0
 	active = true
 
 func stop():
-	print("Timer stopped.")
 	active = false
