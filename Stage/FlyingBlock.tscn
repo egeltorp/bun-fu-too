@@ -9,8 +9,6 @@ size = Vector2(16, 16)
 [node name="FlyingBlock" type="CharacterBody2D"]
 script = ExtResource("1_70dfs")
 speed = 10.0
-roam_radius = 50.0
-time_between_targets = 3.0
 is_deadly = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
