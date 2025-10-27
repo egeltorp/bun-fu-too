@@ -46,6 +46,8 @@ radius = 4.0
 size = Vector2(10, 10)
 
 [node name="Hawk" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_5v4nu")
 
